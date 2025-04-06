@@ -123,5 +123,6 @@ def index():
 
 
 if __name__ == "__main__":
-    app.secret_key = os.getenv("FLASK_SECRET_KEY", "c323295eb9c9bbf6a020373ac330a11f")  # Required for sessions
-    app.run(debug=False)  # Disable debug for production
+    app.secret_key = os.getenv("FLASK_SECRET_KEY", "your_default_secret_key")
+    port = int(os.getenv("PORT", 5000))  # Default to 5000 if PORT not set
+    app.run(host="0.0.0.0", port=port, debug=False)
